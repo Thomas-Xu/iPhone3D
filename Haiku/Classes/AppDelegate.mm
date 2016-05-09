@@ -7,9 +7,12 @@
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
     m_window = [[UIWindow alloc] initWithFrame: screenBounds];
-    m_view = [[GLView alloc] initWithFrame: screenBounds];
+    UIViewController *RootVC = [[UIViewController alloc] init];
+    m_window.rootViewController = RootVC;
     
-    [m_window addSubview: m_view];
+    m_view = [[GLView alloc] initWithFrame: screenBounds];
+    [RootVC.view setFrame:screenBounds];
+    [RootVC.view addSubview: m_view];
     [m_window makeKeyAndVisible];
 }
 

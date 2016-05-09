@@ -9,7 +9,11 @@
     m_window = [[UIWindow alloc] initWithFrame: screenBounds];
     m_view = [[GLView alloc] initWithFrame: screenBounds];
     
-    [m_window addSubview: m_view];
+    UIViewController *RootVC = [[UIViewController alloc] init];
+    [RootVC.view setFrame:screenBounds];
+    m_window.rootViewController = RootVC;
+    
+    [RootVC.view addSubview: m_view];
     [m_window makeKeyAndVisible];
 }
 
